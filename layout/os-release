@@ -1,0 +1,30 @@
+# Qinux system identification.
+#
+# Installed to /etc/os-release by the base package and read by
+# systemd, package managers, fastfetch and most other software that needs to
+# know what it is running on.
+#
+# ID is the machine-readable name and must never change: it is what package
+# managers key their conditional dependencies on. ID_LIKE is for consumers that
+# want "something Arch-like" without being coupled to Qinux itself.
+
+NAME="Qinux"
+PRETTY_NAME="Qinux"
+ID=qinux
+ID_LIKE=arch
+BUILD_ID=rolling
+
+# The wallpaper-derived accent, as an ANSI truecolour sequence. Derived from
+# the Qinux Blue in the branding repository.
+ANSI_COLOR="38;2;44;107;237"
+
+HOME_URL="https://qinux-os.org/"
+DOCUMENTATION_URL="https://github.com/Qinux-Os/docs"
+SUPPORT_URL="https://github.com/Qinux-Os/community/issues"
+BUG_REPORT_URL="https://github.com/Qinux-Os/community/issues"
+LOGO="qinux-logo"
+
+# The kernel package name differs from upstream, so software that shells out to
+# uname -r and then looks for linux-image-<that> needs to know. Recorded here
+# rather than discovered at runtime because the name is fixed at build time.
+VARIANT_ID=qinux

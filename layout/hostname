@@ -1,0 +1,13 @@
+# /etc/hostname
+#
+# The installer overwrites this. It exists in the base package so that an
+# unconfigured image still has a valid, non-empty hostname: systemd refuses to
+# start network units with an empty hostname, and a machine reporting an empty
+# name to a DHCP server gets no lease.
+
+localhost.localdomain
+
+# A hostname has to be a valid DNS label: letters, digits and hyphens, not
+# starting or ending with a hyphen, 63 characters or fewer. Anything else
+# breaks DHCP, mDNS and the local resolver in ways that are hard to diagnose.
+# The installer validates this and refuses to write an invalid value.

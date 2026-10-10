@@ -1,0 +1,36 @@
+# /etc/environment
+#
+# Read by PAM, and therefore by anything started from a login session: ssh,
+# sudo, cron, and every GUI application started by a display manager.
+#
+# It is NOT a shell startup file. Putting anything shell-specific here is a
+# common mistake: it applies to every user including daemons, and the values are
+# not expanded. Use a profile in /etc/profile.d/ for those.
+
+# --- Qinux ----------------------------------------------------------------
+
+# Keep the user's PATH additions out of the system PATH. A system-wide PATH
+# is what a package manager expects; adding a personal directory to it is how
+# a user ends up running an old binary from their home directory after an
+# upgrade. The user path is added by /etc/profile.d/xdg-user-dir.sh instead.
+#
+# Note the empty PATH here is deliberate: leaving this file without a PATH
+# entry keeps the distribution default intact.
+
+# Pager. less, not more: it does not write to the terminal, which matters when
+# a command hangs and the user wants to copy the output before killing it.
+PAGER=less
+
+# Colour in build output. A terminal that cannot do colour shows escape codes
+# in build logs otherwise. Git handles this itself; this is for everything else.
+# Set to a plain value by the installer if the terminal is not colour capable.
+TERM=dumb
+
+# Editors. nano is present in the base set; vi is not, so do not set it here.
+EDITOR=nano
+VISUAL=nano
+
+# Locale. C.UTF-8 is the only locale Qinux installs by default: it is present
+# on every system, needs no locale-gen, and handles UTF-8 correctly. A user who
+# wants a specific locale gets it from the installer, which generates it.
+LANG=C.UTF-8
